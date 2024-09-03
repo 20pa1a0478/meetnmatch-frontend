@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="form-wrapper">
+    <img src="https://cdn-icons-png.flaticon.com/128/14993/14993590.png" alt="Logo" class="logo" />
+
+    <div class="form-content">
+      <h1>Complete Your Payment</h1>
+      <p>Please fill in your payment details below to complete the purchase. We ensure that your information is securely handled. Thank you for shopping with us!</p>
+
+      <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()" class="payment-form">
+        <div class="form-group">
+          <label for="phno">Phone Number</label>
+          <input id="phno" formControlName="phno" type="text" placeholder="Enter your phone number" />
+          <div class="error-message" *ngIf="paymentForm.get('phno')?.invalid && (paymentForm.get('phno')?.dirty || paymentForm.get('phno')?.touched)">
+            <small *ngIf="paymentForm.get('phno')?.errors?.['required']">Phone number is required.</small>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" formControlName="email" type="email" placeholder="Enter your email" />
+          <div class="error-message" *ngIf="paymentForm.get('email')?.invalid && (paymentForm.get('email')?.dirty || paymentForm.get('email')?.touched)">
+            <small *ngIf="paymentForm.get('email')?.errors?.['required']">Email is required.</small>
+            <small *ngIf="paymentForm.get('email')?.errors?.['email']">Invalid email format.</small>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input id="address" formControlName="address" type="text" placeholder="Enter your address" />
+          <div class="error-message" *ngIf="paymentForm.get('address')?.invalid && (paymentForm.get('address')?.dirty || paymentForm.get('address')?.touched)">
+            <small *ngIf="paymentForm.get('address')?.errors?.['required']">Address is required.</small>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="paymentmode">Payment Mode</label>
+          <select id="paymentmode" formControlName="paymentmode">
+            <option value="" disabled>Select payment mode</option>
+            <option value="card">Card</option>
+            <option value="upi">UPI</option>
+          </select>
+          <div class="error-message" *ngIf="paymentForm.get('paymentmode')?.invalid && (paymentForm.get('paymentmode')?.dirty || paymentForm.get('paymentmode')?.touched)">
+            <small *ngIf="paymentForm.get('paymentmode')?.errors?.['required']">Payment mode is required.</small>
+          </div>
+        </div>
+
+        <div *ngIf="paymentForm.get('paymentmode')?.value === 'card'" class="payment-details card-info">
+          <div class="form-group">
+            <label for="cardNumber">Card Number</label>
+            <input id="cardNumber" formControlName="cardNumber" type="text" placeholder="1234 5678 9012 3456" />
+            <div class="error-message" *ngIf="paymentForm.get('cardNumber')?.invalid && (paymentForm.get('cardNumber')?.dirty || paymentForm.get('cardNumber')?.touched)">
+              <small *ngIf="paymentForm.get('cardNumber')?.errors?.['required']">Card number is required.</small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="expiryDate">Expiry Date</label>
+            <input id="expiryDate" formControlName="expiryDate" type="text" placeholder="MM/YY" />
+            <div class="error-message" *ngIf="paymentForm.get('expiryDate')?.invalid && (paymentForm.get('expiryDate')?.dirty || paymentForm.get('expiryDate')?.touched)">
+              <small *ngIf="paymentForm.get('expiryDate')?.errors?.['required']">Expiry date is required.</small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cvv">CVV</label>
+            <input id="cvv" formControlName="cvv" type="text" placeholder="123" />
+            <div class="error-message" *ngIf="paymentForm.get('cvv')?.invalid && (paymentForm.get('cvv')?.dirty || paymentForm.get('cvv')?.touched)">
+              <small *ngIf="paymentForm.get('cvv')?.errors?.['required']">CVV is required.</small>
+            </div>
+          </div>
+        </div>
+        
+        <div *ngIf="paymentForm.get('paymentmode')?.value === 'upi'" class="payment-details upi-info">
+          <div class="form-group">
+            <label for="upiId">UPI ID</label>
+            <input id="upiId" formControlName="upiId" type="text" placeholder="your.upi.id@upi" />
+            <div class="error-message" *ngIf="paymentForm.get('upiId')?.invalid && (paymentForm.get('upiId')?.dirty || paymentForm.get('upiId')?.touched)">
+              <small *ngIf="paymentForm.get('upiId')?.errors?.['required']">UPI ID is required.</small>
+            </div>
+          </div>
+        </div>
+        
+        <div class="button-group">
+          <button type="submit" class="submit-button">Submit</button>
+          <button type="button" class="home-button" [routerLink]="['/']">Home</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,79 @@
+<div class="landing-page">
+  <!-- Hero Section -->
+  <section class="hero" style="display: block;">
+    <div class="hero-content">
+      <h1>Uncover Your Next Great Read</h1>
+      <p>"A book is a dream that you hold in your hands." – Neil Gaiman</p>
+      <a href="#genres" class="cta-button">Discover Genres</a>
+      <br>
+      <br>
+      <p style="padding-top: 5px; color: black;">Find your next great read at <mark>BStore!</mark> Enjoy bestsellers, classics, and hidden gems, along with cozy reading nooks and friendly staff recommendations. Visit us today for special promotions and membership perks. Your literary adventure starts here!</p>
+    </div>
+  </section>
+  <br>
+
+  <!-- Introduction Section -->
+  <section class="introduction">
+    <h2>Welcome to BStore</h2>
+    <p>Immerse yourself in a world of stories. Our curated collections span a range of genres, each crafted to captivate and inspire. Find your next favorite book today!</p>
+  </section>
+
+  <!-- Genre Placards -->
+  <section class="genre-placards" id="genres">
+    <div class="placard" (click)="selectGenre('Mystery')">
+      <div class="placard-inner">
+        <div class="placard-img" style="background-image: url('https://images.brandsupply.com/design_logo-aj-design-pvrhT2TA_245_170.png');"></div>
+        <div class="placard-content">
+          <h3>Mystery</h3>
+          <p>Unravel thrilling mysteries that will keep you guessing until the last page.</p>
+        </div>
+      </div>
+      <a href="#" class="cta-button">Explore Mysteries</a>
+    </div>
+    <div class="placard" (click)="selectGenre('Thriller')">
+      <div class="placard-inner">
+        <div class="placard-img" style="background-image: url('data:image/jpeg;base64,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');"></div>
+        <div class="placard-content">
+          <h3>Thriller</h3>
+          <p>Experience intense drama and heart-pounding action that will keep you on the edge of your seat.</p>
+        </div>
+      </div>
+      <a href="#" class="cta-button">Discover Thrillers</a>
+    </div>
+    <div class="placard" (click)="selectGenre('Science Fiction')">
+      <div class="placard-inner">
+        <div class="placard-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/52/Sci-Fi_Channel_1999_logo.png?20090707055055');"></div>
+        <div class="placard-content">
+          <h3>Science Fiction</h3>
+          <p>Explore futuristic worlds and innovative concepts that push the boundaries of imagination.</p>
+        </div>
+      </div>
+      <a href="#" class="cta-button">Browse Sci-Fi</a>
+    </div>
+    <div class="placard" (click)="selectGenre('Horror')">
+      <div class="placard-inner">
+        <div class="placard-img" style="background-image: url('https://w0.peakpx.com/wallpaper/427/379/HD-wallpaper-most-danger-black-skeleton-smoky-effect-skull-with-red-eyes.jpg');"></div>
+        <div class="placard-content">
+          <h3>Horror</h3>
+          <p>Face your fears with chilling tales and spine-tingling suspense.</p>
+        </div>
+      </div>
+      <a href="#" class="cta-button">Explore Horror</a>
+    </div>
+    <div class="placard" (click)="selectGenre('Historical')">
+      <div class="placard-inner">
+        <div class="placard-img" style="background-image: url('https://i.pinimg.com/originals/b4/7b/fb/b47bfbcd716ecdc348335e9928108a9c.jpg');"></div>
+        <div class="placard-content">
+          <h3>Historical</h3>
+          <p>Travel through different eras with our collection of historical novels.</p>
+        </div>
+      </div>
+      <a href="#" class="cta-button">Browse Historical</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 BStore. All rights reserved.</p>
+  </footer>
+</div>

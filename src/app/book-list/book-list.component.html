@@ -1,0 +1,74 @@
+<div class="book-list-page">
+  <!-- Logo Section -->
+  <header class="header" style="display: flex; align-items: center; justify-content: center;">
+    <img src="https://cdn-icons-png.flaticon.com/128/14993/14993590.png" alt="BStore Logo" class="logo">
+    <H1>BStore</H1>
+  </header>
+
+  <!-- Genre Header -->
+  <section class="genre-header" *ngIf="books.length > 0">
+    <h2>Books in {{ genre }} Genre</h2>
+  </section>
+
+  <!-- Book List -->
+  <section class="book-list" *ngIf="books.length > 0">
+    <div *ngFor="let book of books" class="book-card">
+      <div class="book-cover">
+        <img [src]="book.imagelink" alt="{{ book.book }}" />
+      </div>
+      <div class="book-details">
+        <h3>{{ book.book }}</h3>
+        <p class="book-author"><strong>Author:</strong> {{ book.author }}</p>
+        <p class="book-price"><strong>Price:</strong> ${{ book.price }}</p>
+        <p class="book-rating"><strong>Rating:</strong> {{ book.rating }}</p>
+        <button [routerLink]="['/payment']" class="buy-button">Buy</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- No Books Message -->
+  <section class="no-books" *ngIf="books.length === 0">
+    <p>No books available i<div class="book-list-page">
+      <!-- Logo Section -->
+      <header class="header">
+        <img src="assets/logo.png" alt="BStore Logo" class="logo">
+      </header>
+    
+      <!-- Genre Header -->
+      <section class="genre-header" *ngIf="books.length > 0">
+        <h2>Books in {{ genre }} Genre</h2>
+      </section>
+    
+      <!-- Book List -->
+      <section class="book-list" *ngIf="books.length > 0">
+        <div *ngFor="let book of books" class="book-card">
+          <div class="book-cover">
+            <img [src]="book.imagelink" alt="{{ book.book }}" />
+          </div>
+          <div class="book-details">
+            <h3>{{ book.book }}</h3>
+            <p class="book-author"><strong>Author:</strong> {{ book.author }}</p>
+            <p class="book-price"><strong>Price:</strong> ${{ book.price }}</p>
+            <p class="book-rating"><strong>Rating:</strong> {{ book.rating }}</p>
+            <button class="buy-button">Buy</button>
+          </div>
+        </div>
+      </section>
+    
+      <!-- No Books Message -->
+      <section class="no-books" *ngIf="books.length === 0">
+        <p>No books available in this genre.</p>
+      </section>
+    
+      <!-- Footer -->
+      <footer class="footer">
+        <p>&copy; 2024 BStore. All rights reserved.</p>
+      </footer>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 BStore. All rights reserved.</p>
+  </footer>
+</div>
